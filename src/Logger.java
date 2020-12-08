@@ -107,6 +107,9 @@ public class Logger extends Operator{
         writer.write(String.valueOf(tassist));
         writer.write(String.valueOf(tkd));
 
+        writer.close();
+
+
         File cacheFile = new File("src\\logging\\last.txt");
         writer = new FileWriter(cacheFile, false);
         writer.write(cacheOperator);
@@ -115,6 +118,8 @@ public class Logger extends Operator{
         writer.write(String.valueOf(cacheDeaths));
         writer.write(String.valueOf(cacheAssist));
         writer.write(String.valueOf(cacheKD));
+
+        writer.close();
 
     }
 
