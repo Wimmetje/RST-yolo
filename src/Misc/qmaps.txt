@@ -1,0 +1,19 @@
+bank
+border
+chalet
+clubhouse
+coastline
+consulate
+favela
+fortress
+hereford
+kafe
+kanal
+oregon
+outback
+plane
+skyscraper
+theme park
+tower
+villa
+yacht

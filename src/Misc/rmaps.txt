@@ -1,0 +1,14 @@
+bank
+border
+chalet
+clubhouse
+coastline
+consulate
+fortress
+kafe
+kanal
+oregon
+outback
+skyscraper
+theme park
+villa
