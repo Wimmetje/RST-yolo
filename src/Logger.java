@@ -123,16 +123,12 @@ public class Logger extends Operator{
     }
 
     public static void setVariable(int lineNumber, String data, String Playlist) throws IOException {
-        Path path;
-        if(Playlist.equals("ranked")){
-            path = Paths.get("src\\logging\\ranked.fileindex.txt");
-        }else if(Playlist.equals("unranked")){
-            path = Paths.get("src\\logging\\unranked.fileindex.txt");
-        }else if(Playlist.equals("quickmatch")){
-            path = Paths.get("src\\logging\\quickmatch.fileindex.txt");
-        }else{
-            throw new BackException("back");
-        }
+        Path path = switch (Playlist) {
+            case "ranked" -> Paths.get("src\\logging\\ranked.fileindex.txt");
+            case "unranked" -> Paths.get("src\\logging\\unranked.fileindex.txt");
+            case "quickmatch" -> Paths.get("src\\logging\\quickmatch.fileindex.txt");
+            default -> throw new BackException("back");
+        };
         List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
         lines.set(lineNumber, data);
         Files.write(path, lines, StandardCharsets.UTF_8);

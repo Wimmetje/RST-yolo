@@ -4,9 +4,9 @@
 */
 public class Main extends MethodeSetter {
     public static void main(String[] args) throws Exception {
-        String playlist; //variable where type of playlist is saved
+        String playlist;
         String choice;
-        boolean loop = true; // initialize for loop
+        boolean loop = true;
 
         do {
             //start try-catch method that can bring you back to main menu
@@ -34,9 +34,7 @@ public class Main extends MethodeSetter {
                             }
                         }
                     }
-                    case "check" -> {
-                        Checker.MethodChecker();
-                    }
+                    case "check" -> Checker.MethodChecker();
                     case "exit" -> loop = false; //stops the programming from running
                     default -> {
                         //if in a rare scenario you get here, you'll get an error message telling you whats wrong
@@ -48,6 +46,6 @@ public class Main extends MethodeSetter {
             } catch (BackException e) {
                 //catches the "errors" that'll bring you back to the menu
             }
-        }while (loop);//runs as long loop equals true
+        }while (loop);
     }
 }

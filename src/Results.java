@@ -2,8 +2,6 @@ public class Results extends Logger{
     static String SelectedMap;
     static String SelectedOperator;
     static double kd;
-    static double dkills;
-    static double ddeaths;
     static int kills;
     static int deaths;
     static int assists;
@@ -12,10 +10,10 @@ public class Results extends Logger{
     static String PlayedPlaylist;
 
     public static void MapSetter(String Playlist) throws Exception {
-        switch (Playlist) {
+        switch (Playlist) {//Makes that you can choose the right maps
             case "ranked" -> {
                 setPlaylist("ranked");
-                PlayedPlaylist = Playlist;
+                PlayedPlaylist = Playlist;//necessary for later in the code (line: 57)
             }
             case "unranked" -> {
                 setPlaylist("unranked");
@@ -36,14 +34,12 @@ public class Results extends Logger{
     public static void Register() throws Exception {
         System.out.println("How many kills did you have?");
         kills = II();
-        dkills = kills;
         System.out.println("How many deaths did you have?");
         deaths = II();
-        ddeaths = deaths;
         System.out.println("How many assists did you have?");
         assists = II();
         if (kills != 0){
-            kd = dkills/ddeaths;
+            kd = (double)kills/deaths;
         } else {
             kd = 0;
         }

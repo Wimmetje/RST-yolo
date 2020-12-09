@@ -12,8 +12,10 @@ public class Checker extends Logger{
     public static void MethodChecker() throws Exception {
         List<String> lines = new ArrayList<>();
         List<String> globallines = new ArrayList<>();
+        List<String> lastlines = new ArrayList<>();
         String Playlist;
         String FileCheck = "Null";
+        String choice;
         boolean loop = true;
 
         System.out.println("What Operator do you want to check out?");
@@ -84,5 +86,32 @@ public class Checker extends Logger{
         System.out.println("Kills: "+gkills);
         System.out.println("Deaths: "+gdeaths);
         System.out.println("Assists: "+gassist);
-        System.out.printf("Your total Kill/Dead ratio is: %.2f\n",gkd);    }
+        System.out.printf("Your total Kill/Dead ratio is: %.2f\n",gkd);
+
+        System.out.println("Do you want to see your last results? [y/n]");
+        choice = SI().toLowerCase();
+        if(choice.equals("y")){
+            reader = new BufferedReader(new FileReader("src\\logging\\last.txt"));
+
+            while ((line = reader.readLine()) != null) {
+                lastlines.add(line);
+            }
+            reader.close();
+
+            String lOperator = lastlines.get(0);
+            String lMap = lastlines.get(1);
+            int lkills = parseInt(lastlines.get(2));
+            int ldeaths = parseInt(lastlines.get(3));
+            int lassist = parseInt(lastlines.get(4));
+            double lkd = parseDouble(lastlines.get(5));
+
+            System.out.println("Your last stats were: ");
+            System.out.println("Operator: "+lOperator);
+            System.out.println("Map: "+lMap);
+            System.out.println("Kills: "+lkills);
+            System.out.println("Deaths: "+ldeaths);
+            System.out.println("Assists: "+lassist);
+            System.out.printf("Your total Kill/Dead ratio is: %.2f\n",lkd);
+        }
+    }
 }

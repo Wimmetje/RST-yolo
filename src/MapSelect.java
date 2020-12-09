@@ -6,8 +6,7 @@ import java.util.List;
 public class MapSelect extends Main {
     static String map;
     static String ConfirmedMap;
-    static int k;
-    static int j;
+    static int ArraySize;
     private static String playlist;
     static List<String> maps;
     static List<String> lines = new ArrayList<>();
@@ -17,7 +16,7 @@ public class MapSelect extends Main {
     }
 
     public static void RankedMapArraySetter() throws Exception {
-        FileToArray("src\\Misc\\rmaps.txt");
+        FileToArray("src\\Misc\\rmaps.txt");//converts text file into arraylist
         maps = lines;
     }
 
@@ -33,19 +32,17 @@ public class MapSelect extends Main {
 
     public static String MapFinder() throws Exception{
         ConfirmedMap = null;
-        k = 0;
 
         switch (playlist) {
             case "ranked" -> RankedMapArraySetter();
             case "unranked" -> UnrankedMapArraySetter();
             case "quickmatch" -> QuickmatchMapArraySetter();
             default -> {
-                Errorcode = "003";
-                Error = true;
+                System.out.println("Something went wrong.");
+                throw new BackException("back");//sends you back to Main loop
             }
         }
-        j = maps.size();
-        ErrorMessage();
+        ArraySize = maps.size();
 
         System.out.println("Which map did you play?");
 
@@ -55,14 +52,12 @@ public class MapSelect extends Main {
             throw new BackException("back");
         }
 
-        for (int i = 0; i < maps.size(); i++){
+        for (int i = 0; i < maps.size(); i++){//for method that verifies the Map you played.
             if(map.equals(maps.get(i))){
                 System.out.println("You've played " + map);
                 ConfirmedMap = map;
-            }else if(!map.equals(maps.get(i)) && i == j){
-                ConfirmedMap = "ERROR - SEE ERRORCODE";
-                Errorcode = "Error: 001";
-                Error = true;
+            }else if(!map.equals(maps.get(i)) && i == ArraySize){
+                throw new BackException("back");
             }
         }
         ErrorMessage();
