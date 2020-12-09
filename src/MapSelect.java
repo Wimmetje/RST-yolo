@@ -56,7 +56,7 @@ public class MapSelect extends Main {
             if(map.equals(maps.get(i))){
                 System.out.println("You've played " + map);
                 ConfirmedMap = map;
-            }else if(!map.equals(maps.get(i)) && i == ArraySize){
+            }else if(!map.equals(maps.get(i)) && i == ArraySize){//if the input isn't in the array, and your on the last item return false
                 throw new BackException("back");
             }
         }
@@ -65,12 +65,12 @@ public class MapSelect extends Main {
     }
 
     public static void FileToArray(String PlaylistFile) throws Exception{
-        BufferedReader abc = new BufferedReader(new FileReader(PlaylistFile));
+        BufferedReader reader = new BufferedReader(new FileReader(PlaylistFile));
         String line;
 
-        while((line = abc.readLine()) != null) {
+        while((line = reader.readLine()) != null) {
             lines.add(line);
         }
-        abc.close();
+        reader.close();
     }
 }

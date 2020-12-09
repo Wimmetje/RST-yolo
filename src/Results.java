@@ -28,12 +28,12 @@ public class Results extends Logger{
     }
 
     public static void OperatorSetter() throws Exception {
-        SelectedOperator = OperatorFinder();
+        SelectedOperator = OperatorFinder();//checks if the operator you played is valid
     }
 
     public static void Register() throws Exception {
         System.out.println("How many kills did you have?");
-        kills = II();
+        kills = II();//lets you input an integer (In MethodeSetter)
         System.out.println("How many deaths did you have?");
         deaths = II();
         System.out.println("How many assists did you have?");
@@ -41,12 +41,12 @@ public class Results extends Logger{
         if (kills != 0){
             kd = (double)kills/deaths;
         } else {
-            kd = 0;
+            kd = 0;//you can't divide 0 by something
         }
         System.out.printf("Do you confirm these results? %dK, %dD, %dA [y/n]\n", kills,deaths,assists);
         confirm = SI();
         if(confirm.equals("back")||confirm.equals("stop")||confirm.equals("main menu")||confirm.equals("n")){
-            throw new BackException("back");
+            throw new BackException("back");//returns you to main menu
         }
 
         System.out.printf("You played %s on %s with %d kills, %d deaths, %d assists and a KD of %.2f\n",Capitalizer(SelectedOperator),Capitalizer(SelectedMap),kills,deaths,assists,kd);
@@ -54,7 +54,7 @@ public class Results extends Logger{
         System.out.println("Would you like to save these results? [y/n]");
         savechoice = SI().toLowerCase();
         switch (savechoice){
-            case "y" -> Logger.LoggerWriter(SelectedMap,SelectedOperator,PlayedPlaylist,kills,deaths,assists,kd);
+            case "y" -> Logger.LoggerWriter(SelectedMap,SelectedOperator,PlayedPlaylist,kills,deaths,assists,kd);//saves your data in a file
             case "n" -> throw new BackException("back");
             default -> System.out.println("Sorry, didn't understand what you meant by that");
         }
