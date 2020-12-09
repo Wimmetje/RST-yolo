@@ -66,7 +66,7 @@ public class Checker extends Logger{
         System.out.println("Kills: "+kills);
         System.out.println("Deaths: "+deaths);
         System.out.println("Assists: "+assist);
-        System.out.println("Your total Kill/Dead ratio is: "+kd);
+        System.out.printf("Your total Kill/Dead ratio is: %.2f",kd);
 
         reader = new BufferedReader(new FileReader("src\\logging\\global.txt"));
 

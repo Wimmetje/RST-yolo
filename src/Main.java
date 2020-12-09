@@ -5,28 +5,34 @@
 public class Main extends MethodeSetter {
     public static void main(String[] args) throws Exception {
         String playlist; //variable where type of playlist is saved
+        String choice;
         boolean loop = true; // initialize for loop
 
         do {
             //start try-catch method that can bring you back to main menu
             try {
                 System.out.println("What gamemode did you play?");
-                playlist = SI().toLowerCase(); //get String input (found in MethodeSetter)
-                switch (playlist) {
-                    case "casual", "quickmatch" -> {
-                        Results.MapSetter("quickmatch");
-                        Results.OperatorSetter();
-                        Results.Register();
-                    }
-                    case "ranked" -> {
-                        Results.MapSetter("ranked");
-                        Results.OperatorSetter();
-                        Results.Register();
-                    }
-                    case "unranked" -> {
-                        Results.MapSetter("unranked");
-                        Results.OperatorSetter();
-                        Results.Register();
+                choice = SI().toLowerCase(); //get String input (found in MethodeSetter)
+                switch (choice) {
+                    case "fill in" -> {
+                        playlist = SI().toLowerCase();
+                        switch (playlist){
+                            case "casual", "quickmatch" -> {
+                                Results.MapSetter("quickmatch");
+                                Results.OperatorSetter();
+                                Results.Register();
+                            }
+                            case "ranked" -> {
+                                Results.MapSetter("ranked");
+                                Results.OperatorSetter();
+                                Results.Register();
+                            }
+                            case "unranked" -> {
+                                Results.MapSetter("unranked");
+                                Results.OperatorSetter();
+                                Results.Register();
+                            }
+                        }
                     }
                     case "check" -> {
                         Checker.MethodChecker();

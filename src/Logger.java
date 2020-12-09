@@ -44,7 +44,7 @@ public class Logger extends Operator{
 
     public static void LoggerWriter(String Map, String Operator,String Playlist, int newkills, int newdeaths, int newassist, double newUKD) throws Exception{
         Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd.hh:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd.hhmmss");
         String strDate = dateFormat.format(date);
         System.out.println(strDate);
 

@@ -47,9 +47,9 @@ public class Results extends Logger{
         } else {
             kd = 0;
         }
-        System.out.printf("Do you confirm these results? %d K, %d D, %d A\n", kills,deaths,assists);
+        System.out.printf("Do you confirm these results? %dK, %dD, %dA [y/n]\n", kills,deaths,assists);
         confirm = SI();
-        if(confirm.equals("back")||confirm.equals("stop")||confirm.equals("main menu")||confirm.equals("no")){
+        if(confirm.equals("back")||confirm.equals("stop")||confirm.equals("main menu")||confirm.equals("n")){
             throw new BackException("back");
         }
 
