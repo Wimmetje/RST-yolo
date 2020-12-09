@@ -9,7 +9,7 @@ blitz
 buck
 capitao
 castle
-src\logging\caveira 20201207.035957.txt
+caveira
 clash
 doc
 dokkaebi
@@ -26,14 +26,14 @@ iana
 iq
 jackal
 jager
-src\logging\kaid 20201207.035253.txt
+kaid
 kali
 kapkan
 lesion
 lion
 maestro
 maverick
-src\logging\melusi 20201207.023013.txt
+melusi
 mira
 montagne
 mozzie
@@ -55,5 +55,5 @@ wamai
 warden
 ying
 zero
-src\logging\zofia 20201208.012756.txt
+zofia
 global

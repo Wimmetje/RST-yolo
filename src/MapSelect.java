@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapSelect extends Match{
+public class MapSelect extends Main {
     static String map;
     static String ConfirmedMap;
     static int k;
@@ -51,7 +51,7 @@ public class MapSelect extends Match{
 
         map = SI().toLowerCase();
 
-        if(map.equals("back")){
+        if(map.equals("back")||map.equals("stop")||map.equals("main menu")){
             throw new BackException("back");
         }
 

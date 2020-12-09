@@ -10,21 +10,18 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 public class Logger extends Operator{
     private static int lastkills;
     private static int lastdeaths;
     private static int lastassist;
-    private static int ngkills;
-    private static int ngdeaths;
-    private static int ngassist;
 
-    public static void LoggerReader(String Operator) throws Exception {
+    public static void LoggerReader(String Operator, String Playlist) throws Exception {
         List<String> lines = new ArrayList<>();
         try {
-            String LastFile = Files.readAllLines(Paths.get("src\\logging\\completelast.txt")).get(OperatorNumFinder.OpNumFinder(Operator));
+            String Filename = "src\\logging\\" + Playlist + ".fileindex";
+            String LastFile = Files.readAllLines(Paths.get(Filename)).get(OperatorNumFinder.OpNumFinder(Operator));
             BufferedReader reader = new BufferedReader(new FileReader(LastFile));
             String line;
 
@@ -45,15 +42,15 @@ public class Logger extends Operator{
         }
     }
 
-    public static void LoggerWriter(String Map, String Operator, int newkills, int newdeaths, int newassist, double newUKD) throws Exception{
+    public static void LoggerWriter(String Map, String Operator,String Playlist, int newkills, int newdeaths, int newassist, double newUKD) throws Exception{
         Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd.hhmmss");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd.hh:mm:ss");
         String strDate = dateFormat.format(date);
         System.out.println(strDate);
 
-        LoggerReader(Operator);
+        LoggerReader(Operator,Playlist);
 
-        String Filename = "src\\logging\\" + Operator + " " + strDate + ".txt";
+        String Filename = "src\\logging\\" + Playlist + "." + Operator + "." + strDate + ".txt";
         File sfile = new File(String.valueOf(Filename));
 
         if(sfile.createNewFile()){
@@ -80,7 +77,7 @@ public class Logger extends Operator{
 
         int Operatornum = OperatorNumFinder.OpNumFinder(Operator);
 
-        setVariable(Operatornum,Filename);
+        setVariable(Operatornum,Filename,Playlist);
     }
 
     public static void LoggerUpdater(String cacheOperator, String cacheMap, int cacheKills, int cacheDeaths, int cacheAssist) throws IOException {
@@ -100,26 +97,42 @@ public class Logger extends Operator{
             tkd = ((double) tkills)/tdeaths;
         }
 
+        DecimalFormat df = new DecimalFormat("#.##");
+        String rkd = df.format(tkd);
+
         File gfile = new File("src\\logging\\global.txt");
         FileWriter writer = new FileWriter(gfile, false);
-        writer.write(String.valueOf(tkills));
-        writer.write(String.valueOf(tdeaths));
-        writer.write(String.valueOf(tassist));
-        writer.write(String.valueOf(tkd));
+        writer.write(String.valueOf(tkills)+"\n");
+        writer.write(String.valueOf(tdeaths)+"\n");
+        writer.write(String.valueOf(tassist)+"\n");
+        writer.write(rkd);
+
+        writer.close();
 
         File cacheFile = new File("src\\logging\\last.txt");
         writer = new FileWriter(cacheFile, false);
-        writer.write(cacheOperator);
-        writer.write(cacheMap);
-        writer.write(String.valueOf(cacheKills));
-        writer.write(String.valueOf(cacheDeaths));
-        writer.write(String.valueOf(cacheAssist));
+        writer.write(cacheOperator+"\n");
+        writer.write(cacheMap+"\n");
+        writer.write(String.valueOf(cacheKills)+"\n");
+        writer.write(String.valueOf(cacheDeaths)+"\n");
+        writer.write(String.valueOf(cacheAssist)+"\n");
         writer.write(String.valueOf(cacheKD));
+
+        writer.close();
 
     }
 
-    public static void setVariable(int lineNumber, String data) throws IOException {
-        Path path = Paths.get("src\\logging\\completelast.txt");
+    public static void setVariable(int lineNumber, String data, String Playlist) throws IOException {
+        Path path;
+        if(Playlist.equals("ranked")){
+            path = Paths.get("src\\logging\\ranked.fileindex.txt");
+        }else if(Playlist.equals("unranked")){
+            path = Paths.get("src\\logging\\unranked.fileindex.txt");
+        }else if(Playlist.equals("quickmatch")){
+            path = Paths.get("src\\logging\\quickmatch.fileindex.txt");
+        }else{
+            throw new BackException("back");
+        }
         List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
         lines.set(lineNumber, data);
         Files.write(path, lines, StandardCharsets.UTF_8);

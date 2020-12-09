@@ -2,7 +2,7 @@
  * (c)Wim Bron, 2020
  * This application is for free use, and falls under the GNU General Public License
 */
-public class Match extends MethodeSetter {
+public class Main extends MethodeSetter {
     public static void main(String[] args) throws Exception {
         String playlist; //variable where type of playlist is saved
         boolean loop = true; // initialize for loop
@@ -14,24 +14,24 @@ public class Match extends MethodeSetter {
                 playlist = SI().toLowerCase(); //get String input (found in MethodeSetter)
                 switch (playlist) {
                     case "casual", "quickmatch" -> {
-                        Quickmatch.MapSetter();
-                        Quickmatch.OperatorSetter();
-                        Quickmatch.Register();
+                        Results.MapSetter("quickmatch");
+                        Results.OperatorSetter();
+                        Results.Register();
                     }
                     case "ranked" -> {
-                        Ranked.MapSetter();
-                        Ranked.OperatorSetter();
-                        Ranked.Register();
+                        Results.MapSetter("ranked");
+                        Results.OperatorSetter();
+                        Results.Register();
                     }
                     case "unranked" -> {
-                        Unranked.MapSetter();
-                        Unranked.OperatorSetter();
-                        Unranked.Register();
+                        Results.MapSetter("unranked");
+                        Results.OperatorSetter();
+                        Results.Register();
                     }
                     case "check" -> {
-                        Checker.Checker();
+                        Checker.MethodChecker();
                     }
-                    case "stop" -> loop = false; //stops the programming from running
+                    case "exit" -> loop = false; //stops the programming from running
                     default -> {
                         //if in a rare scenario you get here, you'll get an error message telling you whats wrong
                         loop = false;

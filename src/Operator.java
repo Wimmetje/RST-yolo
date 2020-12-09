@@ -17,7 +17,7 @@ public class Operator extends MapSelect{
         System.out.println("Did you play as offense or as defense?");
         PlayedSide = SI().toLowerCase();
 
-        if(PlayedSide.equals("back")){
+        if(PlayedSide.equals("back")||PlayedSide.equals("stop")||PlayedSide.equals("main menu")){
             throw new BackException("back");
         }
 
@@ -45,7 +45,7 @@ public class Operator extends MapSelect{
         do{
             PlayedOperator = SI().toLowerCase();
 
-            if(PlayedOperator.equals("back")){
+            if(PlayedOperator.equals("back")||PlayedOperator.equals("stop")||PlayedOperator.equals("main menu")){
                 throw new BackException("back");
             }
 
@@ -67,12 +67,12 @@ public class Operator extends MapSelect{
     }
 
     public static void FileToArray(String PlayedSideFile) throws Exception{
-        BufferedReader abc = new BufferedReader(new FileReader(PlayedSideFile));
+        BufferedReader reader = new BufferedReader(new FileReader(PlayedSideFile));
         String line;
 
-        while((line = abc.readLine()) != null) {
+        while((line = reader.readLine()) != null) {
             lines.add(line);
         }
-        abc.close();
+        reader.close();
     }
 }

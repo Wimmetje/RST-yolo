@@ -1,5 +1,5 @@
 public class BackException extends RuntimeException{
-    public BackException(String errorMessage){
-        super(errorMessage);
+    public BackException(String Message){
+        super(Message);
     }
 }
