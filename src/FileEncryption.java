@@ -1,6 +1,6 @@
 import java.util.Base64;
 
-public class FileEncryption extends Operator{
+public class FileEncryption extends OperatorSelect {
     public static String FileEncrypter(String input){
         byte[] encodedString = Base64.getEncoder().encode(input.getBytes());
         String output = new String(encodedString);

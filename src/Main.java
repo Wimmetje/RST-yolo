@@ -11,10 +11,16 @@ public class Main extends MethodeSetter {
         do {
             //start try-catch method that can bring you back to main menu
             try {
-                System.out.println("What gamemode did you play?");
+                System.out.println("----------");
+                System.out.println("Main Menu");
+                System.out.println("----------");
+                System.out.println("What do you want to do?");
+                System.out.println("[Fill in]/[Check]/[Exit]");
                 choice = SI().toLowerCase(); //get String input (found in MethodeSetter)
                 switch (choice) {
                     case "fill in" -> {
+                        System.out.println("What gamemode did you play?");
+                        System.out.println("[Casual]/[Unranked]/[Ranked]");
                         playlist = SI().toLowerCase();
                         switch (playlist){
                             case "casual", "quickmatch" -> {

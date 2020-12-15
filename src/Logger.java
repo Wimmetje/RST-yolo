@@ -1,4 +1,6 @@
 import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,12 +12,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 public class Logger extends FileEncryption{
     private static int lastkills;
     private static int lastdeaths;
     private static int lastassist;
+    private static int gkills;
+    private static int gdeaths;
+    private static int gassists;
 
     public static void LoggerReader(String Operator, String Playlist) throws Exception {
         List<String> lines = new ArrayList<>();
@@ -33,9 +40,12 @@ public class Logger extends FileEncryption{
             lastdeaths = parseInt(FileDecrypter(lines.get(2)));
             lastassist = parseInt(FileDecrypter(lines.get(3)));
 
-            File f = new File(LastFile);
-            if (f.delete()) {
-                System.out.println(LastFile + " deleted");
+            File file = new File(LastFile);
+
+            if (file.delete()){
+                System.out.println("File deleted succesfully");
+            } else {
+                System.out.println("Failed to delete...");
             }
         }catch(IOException e){
             System.out.println("File will be created...");
@@ -73,6 +83,8 @@ public class Logger extends FileEncryption{
         writer.flush();
         writer.close();
 
+        GlobalReader();
+
         LoggerUpdater(Map,Operator,newkills,newdeaths,newassist);
 
         int Operatornum = OperatorNumFinder.OpNumFinder(Operator);
@@ -81,9 +93,9 @@ public class Logger extends FileEncryption{
     }
 
     public static void LoggerUpdater(String cacheOperator, String cacheMap, int cacheKills, int cacheDeaths, int cacheAssist) throws IOException {
-        int tkills = lastkills+cacheKills;
-        int tdeaths = lastdeaths+cacheDeaths;
-        int tassist = lastassist+cacheAssist;
+        int tkills = gkills+cacheKills;
+        int tdeaths = gdeaths+cacheDeaths;
+        int tassist = gassists+cacheAssist;
         double tkd;
         double cacheKD;
         if(cacheKills==0){
@@ -132,5 +144,22 @@ public class Logger extends FileEncryption{
         List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
         lines.set(lineNumber, data);
         Files.write(path, lines, StandardCharsets.UTF_8);
+    }
+
+    public static void GlobalReader() throws Exception {
+        List<String> globallines = new ArrayList<>();
+        String FileCheck = "Null";
+        String line;
+
+        Reader reader = new BufferedReader(new FileReader("src\\logging\\global.txt"));
+
+        while ((line = ((BufferedReader) reader).readLine()) != null) {
+            globallines.add(line);
+        }
+        reader.close();
+
+        gkills = parseInt(FileDecrypter(globallines.get(0)));
+        gdeaths = parseInt(FileDecrypter(globallines.get(1)));
+        gassists = parseInt(FileDecrypter(globallines.get(2)));
     }
 }

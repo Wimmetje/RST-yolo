@@ -24,7 +24,7 @@ gridlock
 hibana
 iana
 iq
-jackal
+src\logging\quickmatch.jackal.20201215.121904.txt
 jager
 kaid
 kali

@@ -44,7 +44,9 @@ public class MapSelect extends Main {
         }
         ArraySize = maps.size();
 
+        System.out.println("----------");
         System.out.println("Which map did you play?");
+        System.out.println("See documentation for options.");
 
         map = SI().toLowerCase();
 

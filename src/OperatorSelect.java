@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Operator extends MapSelect{
+public class OperatorSelect extends MapSelect{
     static String ConfirmedOperator;
     static String PlayedOperator;
     static String PlayedSide;
@@ -13,7 +13,9 @@ public class Operator extends MapSelect{
     static boolean SelOperatorLoop = true;
 
     public static String OperatorFinder() throws Exception {
+        System.out.println("----------");
         System.out.println("Did you play as offense or as defense?");
+        System.out.println("[Offense]/[Defense]");
         PlayedSide = SI().toLowerCase();
 
         if(PlayedSide.equals("back")||PlayedSide.equals("stop")||PlayedSide.equals("main menu")){
@@ -37,7 +39,9 @@ public class Operator extends MapSelect{
 
         ErrorMessage();
 
+        System.out.println("----------");
         System.out.println("Which operator did you play?");
+        System.out.println("See documentation for options.");
 
         j=operators.size();
 

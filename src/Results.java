@@ -32,6 +32,7 @@ public class Results extends Logger{
     }
 
     public static void Register() throws Exception {
+        System.out.println("----------");
         System.out.println("How many kills did you have?");
         kills = II();//lets you input an integer (In MethodeSetter)
         System.out.println("How many deaths did you have?");

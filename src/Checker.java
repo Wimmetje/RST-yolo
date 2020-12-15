@@ -98,8 +98,8 @@ public class Checker extends Logger{
             }
             reader.close();
 
-            String lOperator = FileDecrypter(lastlines.get(0));
-            String lMap = FileDecrypter(lastlines.get(1));
+            String lOperator = FileDecrypter(lastlines.get(1));
+            String lMap = FileDecrypter(lastlines.get(0));
             int lkills = parseInt(FileDecrypter(lastlines.get(2)));
             int ldeaths = parseInt(FileDecrypter(lastlines.get(3)));
             int lassist = parseInt(FileDecrypter(lastlines.get(4)));
