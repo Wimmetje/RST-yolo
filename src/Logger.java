@@ -27,7 +27,7 @@ public class Logger extends FileEncryption{
     public static void LoggerReader(String Operator, String Playlist) throws Exception {
         List<String> lines = new ArrayList<>();
         try {
-            String Filename = "src\\logging\\" + Playlist + ".fileindex";
+            String Filename = "src\\logging\\" + Playlist + ".fileindex.txt";
             String LastFile = Files.readAllLines(Paths.get(Filename)).get(OperatorNumFinder.OpNumFinder(Operator));
             BufferedReader reader = new BufferedReader(new FileReader(LastFile));
             String line;
@@ -43,12 +43,12 @@ public class Logger extends FileEncryption{
             File file = new File(LastFile);
 
             if (file.delete()){
-                System.out.println("File deleted succesfully");
+                System.out.println("File deleted");
             } else {
                 System.out.println("Failed to delete...");
             }
         }catch(IOException e){
-            System.out.println("File will be created...");
+            System.out.println(e.getMessage());
         }
     }
 
@@ -151,9 +151,9 @@ public class Logger extends FileEncryption{
         String FileCheck = "Null";
         String line;
 
-        Reader reader = new BufferedReader(new FileReader("src\\logging\\global.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("src\\logging\\global.txt"));
 
-        while ((line = ((BufferedReader) reader).readLine()) != null) {
+        while ((line = reader.readLine()) != null) {
             globallines.add(line);
         }
         reader.close();

@@ -24,7 +24,7 @@ gridlock
 hibana
 iana
 iq
-src\logging\ranked.jackal.20201215.121939.txt
+src\logging\ranked.jackal.20201215.032447.txt
 jager
 src\logging\ranked.kaid.20201215.123404.txt
 kali
@@ -55,5 +55,5 @@ src\logging\ranked.wamai.20201215.123609.txt
 warden
 ying
 zero
-src\logging\ranked.zofia.20201215.124457.txt
+src\logging\ranked.zofia.20201215.030640.txt
 global
