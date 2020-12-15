@@ -64,7 +64,7 @@ public class Logger extends FileEncryption{
         String rkd = df.format(lastUKD);
 
         FileWriter writer = new FileWriter(sfile);
-        writer.write(FileEncrypter(Operator + "\n"));
+        writer.write(FileEncrypter(Operator) + "\n");
         writer.write(FileEncrypter(String.valueOf(newkills+lastkills)) + "\n");
         writer.write(FileEncrypter(String.valueOf(newdeaths+lastdeaths)) + "\n");
         writer.write(FileEncrypter(String.valueOf(newassist+lastassist)) + "\n");

@@ -15,7 +15,7 @@ doc
 dokkaebi
 echo
 ela
-finka
+src\logging\ranked.finka.20201215.102349.txt
 frost
 fuze
 glaz
