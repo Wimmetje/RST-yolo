@@ -59,10 +59,10 @@ public class Checker extends Logger{
         reader.close();
 
         String operator = lines.get(0);
-        int kills = parseInt(lines.get(1));
-        int deaths = parseInt(lines.get(2));
-        int assist = parseInt(lines.get(3));
-        double kd = parseDouble(lines.get(4));
+        int kills = parseInt(FileDecrypter(lines.get(1)));
+        int deaths = parseInt(FileDecrypter(lines.get(2)));
+        int assist = parseInt(FileDecrypter(lines.get(3)));
+        double kd = parseDouble(FileDecrypter(lines.get(4)));
 
         System.out.printf("Your stats with %s are: ",Capitalizer(operator));
         System.out.println("Kills: "+kills);
@@ -77,10 +77,10 @@ public class Checker extends Logger{
         }
         reader.close();
 
-        int gkills = parseInt(globallines.get(0));
-        int gdeaths = parseInt(globallines.get(1));
-        int gassist = parseInt(globallines.get(2));
-        double gkd = parseDouble(globallines.get(3));
+        int gkills = parseInt(FileDecrypter(globallines.get(0)));
+        int gdeaths = parseInt(FileDecrypter(globallines.get(1)));
+        int gassist = parseInt(FileDecrypter(globallines.get(2)));
+        double gkd = parseDouble(FileDecrypter(globallines.get(3)));
 
         System.out.println("Your global stats are: ");
         System.out.println("Kills: "+gkills);
@@ -100,10 +100,10 @@ public class Checker extends Logger{
 
             String lOperator = lastlines.get(0);
             String lMap = lastlines.get(1);
-            int lkills = parseInt(lastlines.get(2));
-            int ldeaths = parseInt(lastlines.get(3));
-            int lassist = parseInt(lastlines.get(4));
-            double lkd = parseDouble(lastlines.get(5));
+            int lkills = parseInt(FileDecrypter(lastlines.get(2)));
+            int ldeaths = parseInt(FileDecrypter(lastlines.get(3)));
+            int lassist = parseInt(FileDecrypter(lastlines.get(4)));
+            double lkd = parseDouble(FileDecrypter(lastlines.get(5)));
 
             System.out.println("Your last stats were: ");
             System.out.println("Operator: "+lOperator);

@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 import static java.lang.Integer.parseInt;
 
-public class Logger extends Operator{
+public class Logger extends FileEncryption{
     private static int lastkills;
     private static int lastdeaths;
     private static int lastassist;
@@ -29,9 +29,9 @@ public class Logger extends Operator{
                 lines.add(line);
             }
             reader.close();
-            lastkills = parseInt(lines.get(1));
-            lastdeaths = parseInt(lines.get(2));
-            lastassist = parseInt(lines.get(3));
+            lastkills = parseInt(FileDecrypter((lines.get(1))));
+            lastdeaths = parseInt(FileDecrypter(lines.get(2)));
+            lastassist = parseInt(FileDecrypter(lines.get(3)));
 
             File f = new File(LastFile);
             if (f.delete()) {
@@ -64,11 +64,11 @@ public class Logger extends Operator{
         String rkd = df.format(lastUKD);
 
         FileWriter writer = new FileWriter(sfile);
-        writer.write(Operator + "\n");
-        writer.write(String.valueOf(newkills+lastkills) + "\n");
-        writer.write(String.valueOf(newdeaths+lastdeaths) + "\n");
-        writer.write(String.valueOf(newassist+lastassist) + "\n");
-        writer.write(rkd);
+        writer.write(FileEncrypter(Operator + "\n"));
+        writer.write(FileEncrypter(String.valueOf(newkills+lastkills)) + "\n");
+        writer.write(FileEncrypter(String.valueOf(newdeaths+lastdeaths)) + "\n");
+        writer.write(FileEncrypter(String.valueOf(newassist+lastassist)) + "\n");
+        writer.write(FileEncrypter(rkd));
 
         writer.flush();
         writer.close();
@@ -102,21 +102,21 @@ public class Logger extends Operator{
 
         File gfile = new File("src\\logging\\global.txt");
         FileWriter writer = new FileWriter(gfile, false);
-        writer.write(String.valueOf(tkills)+"\n");
-        writer.write(String.valueOf(tdeaths)+"\n");
-        writer.write(String.valueOf(tassist)+"\n");
-        writer.write(rkd);
+        writer.write(FileEncrypter(String.valueOf(tkills))+"\n");
+        writer.write(FileEncrypter(String.valueOf(tdeaths))+"\n");
+        writer.write(FileEncrypter(String.valueOf(tassist))+"\n");
+        writer.write(FileEncrypter(rkd));
 
         writer.close();
 
         File cacheFile = new File("src\\logging\\last.txt");
         writer = new FileWriter(cacheFile, false);
-        writer.write(cacheOperator+"\n");
-        writer.write(cacheMap+"\n");
-        writer.write(String.valueOf(cacheKills)+"\n");
-        writer.write(String.valueOf(cacheDeaths)+"\n");
-        writer.write(String.valueOf(cacheAssist)+"\n");
-        writer.write(String.valueOf(cacheKD));
+        writer.write(FileEncrypter(cacheOperator)+"\n");
+        writer.write(FileEncrypter(cacheMap)+"\n");
+        writer.write(FileEncrypter(String.valueOf(cacheKills))+"\n");
+        writer.write(FileEncrypter(String.valueOf(cacheDeaths))+"\n");
+        writer.write(FileEncrypter(String.valueOf(cacheAssist))+"\n");
+        writer.write(FileEncrypter(String.valueOf(cacheKD)));
 
         writer.close();
 
