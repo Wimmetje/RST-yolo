@@ -134,7 +134,7 @@ public class Logger extends FileEncryption{
 
     }
 
-    public static void setVariable(int lineNumber, String data, String Playlist) throws IOException {
+    public static void setVariable(int lineNumber, String OperatorPath, String Playlist) throws IOException {
         Path path = switch (Playlist) {
             case "ranked" -> Paths.get("src\\logging\\ranked.fileindex.txt");
             case "unranked" -> Paths.get("src\\logging\\unranked.fileindex.txt");
@@ -142,7 +142,7 @@ public class Logger extends FileEncryption{
             default -> throw new BackException("back");
         };
         List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
-        lines.set(lineNumber, data);
+        lines.set(lineNumber, OperatorPath);
         Files.write(path, lines, StandardCharsets.UTF_8);
     }
 
