@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 public class Logger extends FileEncryption{

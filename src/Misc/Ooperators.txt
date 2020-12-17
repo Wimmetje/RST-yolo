@@ -20,6 +20,7 @@ maverick
 montagne
 nokk
 nomad
+recruit
 sledge
 thatcher
 thermite

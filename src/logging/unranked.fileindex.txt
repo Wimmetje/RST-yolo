@@ -42,6 +42,7 @@ nokk
 nomad
 oryx
 pulse
+recruit
 rook
 sledge
 smoke

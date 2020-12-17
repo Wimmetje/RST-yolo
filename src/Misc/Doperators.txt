@@ -20,6 +20,7 @@ mozzie
 mute
 oryx
 pulse
+recruit
 rook
 smoke
 tachanka
