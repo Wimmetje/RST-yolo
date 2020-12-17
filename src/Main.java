@@ -19,6 +19,7 @@ public class Main extends MethodeSetter {
                 choice = SI().toLowerCase(); //get String input (found in MethodeSetter)
                 switch (choice) {
                     case "fill in" -> {
+                        System.out.println("----------");
                         System.out.println("What gamemode did you play?");
                         System.out.println("[Casual]/[Unranked]/[Ranked]");
                         playlist = SI().toLowerCase();
@@ -43,9 +44,7 @@ public class Main extends MethodeSetter {
                     case "check" -> Checker.MethodChecker();
                     case "exit" -> loop = false; //stops the programming from running
                     default -> {
-                        //if in a rare scenario you get here, you'll get an error message telling you whats wrong
-                        loop = false;
-                        System.out.println("Error: 002");
+                        System.out.println("That is not a valid option!");
                     }
 
                 }

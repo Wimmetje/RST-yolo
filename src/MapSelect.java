@@ -56,7 +56,6 @@ public class MapSelect extends Main {
 
         for (int i = 0; i < maps.size(); i++){//for method that verifies the Map you played.
             if(map.equals(maps.get(i))){
-                System.out.println("You've played " + map);
                 ConfirmedMap = map;
             }else if(!map.equals(maps.get(i)) && i == ArraySize){//if the input isn't in the array, and your on the last item return false
                 throw new BackException("back");

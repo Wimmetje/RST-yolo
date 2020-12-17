@@ -65,7 +65,6 @@ public class OperatorSelect extends MapSelect{
 
         SelOperatorLoop = true;
 
-        System.out.println(ConfirmedOperator);
         return ConfirmedOperator;
     }
 

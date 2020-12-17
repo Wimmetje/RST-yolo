@@ -42,6 +42,7 @@ nokk
 nomad
 oryx
 pulse
+recruit
 rook
 sledge
 smoke
@@ -56,4 +57,3 @@ warden
 ying
 zero
 zofia
-recruit

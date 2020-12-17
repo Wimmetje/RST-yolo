@@ -42,9 +42,9 @@ public class Results extends Logger{
         if (kills != 0){
             kd = (double)kills/deaths;
         } else {
-            kd = 0;//you can't divide 0 by something
+            kd = 0;
         }
-        System.out.printf("Do you confirm these results? %dK, %dD, %dA [y/n]\n", kills,deaths,assists);
+        System.out.printf("Do you confirm these results? %dK, %dD, %dA on %s with %s? [y/n]\n",kills,deaths,assists,Capitalizer(SelectedMap),Capitalizer(SelectedOperator));
         confirm = SI();
         if(confirm.equals("back")||confirm.equals("stop")||confirm.equals("main menu")||confirm.equals("n")){
             throw new BackException("back");//returns you to main menu
@@ -52,6 +52,7 @@ public class Results extends Logger{
 
         System.out.printf("You played %s on %s with %d kills, %d deaths, %d assists and a KD of %.2f\n",Capitalizer(SelectedOperator),Capitalizer(SelectedMap),kills,deaths,assists,kd);
 
+        System.out.println("----------");
         System.out.println("Would you like to save these results? [y/n]");
         savechoice = SI().toLowerCase();
         switch (savechoice){

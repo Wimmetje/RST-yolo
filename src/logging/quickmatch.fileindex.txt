@@ -57,4 +57,3 @@ warden
 ying
 zero
 zofia
-global

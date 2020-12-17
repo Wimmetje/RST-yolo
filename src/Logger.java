@@ -41,12 +41,12 @@ public class Logger extends FileEncryption{
             File file = new File(LastFile);
 
             if (file.delete()){
-                System.out.println("File deleted");
-            } else {
-                System.out.println("Failed to delete...");
+                System.out.println("Step 1 complete.");
+            }else{
+                System.out.println("Step 1 failed! See documentation!");
             }
         }catch(IOException e){
-            System.out.println(e.getMessage());
+            System.out.println("First time file setup!");
         }
     }
 
@@ -54,7 +54,6 @@ public class Logger extends FileEncryption{
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd.hhmmss");
         String strDate = dateFormat.format(date);
-        System.out.println(strDate);
 
         LoggerReader(Operator,Playlist);
 
@@ -62,9 +61,9 @@ public class Logger extends FileEncryption{
         File sfile = new File(String.valueOf(Filename));
 
         if(sfile.createNewFile()){
-            System.out.println("File created: " + sfile.getName());
+            System.out.println("Step 2 complete.\n");
         } else {
-            System.out.println("File already exists");
+            System.out.println("Step 2 failed! See documentation!\n");
         }
 
         DecimalFormat df = new DecimalFormat("#.##");

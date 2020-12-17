@@ -18,7 +18,9 @@ public class Checker extends Logger{
         String choice;
         boolean loop = true;
 
+        System.out.println("----------");
         System.out.println("What Operator do you want to check out?");
+        System.out.println("See documentation for options.");
 
         String SelOperator = SI().toLowerCase();
         if(SelOperator.equals("back")||SelOperator.equals("stop")||SelOperator.equals("main menu")){
@@ -26,10 +28,11 @@ public class Checker extends Logger{
         }
         int OperatorNum = OperatorNumFinder.OpNumFinder(SelOperator);
 
-        System.out.println("What Playlist do you want to check? (Your Global stats will always be displayed");
-        Playlist = SI().toLowerCase();
+        System.out.println("----------");
+        System.out.println("What Playlist do you want to check? (Your Global stats will always be displayed)");
 
         do {
+            Playlist = SI().toLowerCase();
             switch (Playlist) {
                 case "ranked" ->
                         {
@@ -41,7 +44,7 @@ public class Checker extends Logger{
                             FileCheck = Files.readAllLines(Paths.get("src\\logging\\unranked.fileindex.txt")).get(OperatorNumFinder.OpNumFinder(SelOperator));
                             loop = false;
                         }
-                case "quickmatch" ->
+                case "quickmatch","casual" ->
                         {
                             FileCheck = Files.readAllLines(Paths.get("src\\logging\\quickmatch.fileindex.txt")).get(OperatorNumFinder.OpNumFinder(SelOperator));
                             loop = false;
@@ -64,11 +67,11 @@ public class Checker extends Logger{
         int assist = parseInt(FileDecrypter(lines.get(3)));
         double kd = parseDouble(FileDecrypter(lines.get(4)));
 
-        System.out.printf("Your stats with %s are: ",Capitalizer(operator));
+        System.out.printf("Your stats with %s are: \n",Capitalizer(operator));
         System.out.println("Kills: "+kills);
         System.out.println("Deaths: "+deaths);
         System.out.println("Assists: "+assist);
-        System.out.printf("Your total Kill/Dead ratio is: %.2f",kd);
+        System.out.printf("Your total Kill/Dead ratio is: %.2f\n",kd);
 
         reader = new BufferedReader(new FileReader("src\\logging\\global.txt"));
 
@@ -86,8 +89,9 @@ public class Checker extends Logger{
         System.out.println("Kills: "+gkills);
         System.out.println("Deaths: "+gdeaths);
         System.out.println("Assists: "+gassist);
-        System.out.printf("Your total Kill/Dead ratio is: %.2f\n",gkd);
+        System.out.printf("Your global Kill/Dead ratio is: %.2f\n",gkd);
 
+        System.out.println("----------");
         System.out.println("Do you want to see your last results? [y/n]");
         choice = SI().toLowerCase();
         if(choice.equals("y")){
@@ -106,8 +110,8 @@ public class Checker extends Logger{
             double lkd = parseDouble(FileDecrypter(lastlines.get(5)));
 
             System.out.println("Your last stats were: ");
-            System.out.println("Operator: "+lOperator);
-            System.out.println("Map: "+lMap);
+            System.out.println("Operator: "+Capitalizer(lOperator));
+            System.out.println("Map: "+Capitalizer(lMap));
             System.out.println("Kills: "+lkills);
             System.out.println("Deaths: "+ldeaths);
             System.out.println("Assists: "+lassist);
