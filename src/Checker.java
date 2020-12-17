@@ -29,7 +29,7 @@ public class Checker extends Logger{
         int OperatorNum = OperatorNumFinder.OpNumFinder(SelOperator);
 
         System.out.println("----------");
-        System.out.println("What Playlist do you want to check? (Your Global stats will always be displayed)");
+        System.out.println("What Gamemode do you want to check? (Your Global stats will always be displayed)");
 
         do {
             Playlist = SI().toLowerCase();
