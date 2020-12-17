@@ -44,17 +44,17 @@ public class Results extends Logger{
         } else {
             kd = 0;
         }
-        System.out.printf("Do you confirm these results? %dK, %dD, %dA on %s with %s? [y/n]\n",kills,deaths,assists,Capitalizer(SelectedMap),Capitalizer(SelectedOperator));
-        confirm = SI();
+        System.out.printf("Do you confirm these results? %dK, %dD, %dA on %s with %s? [y/n]\n",kills,deaths,assists,MethodeSetter.Capitalizer(SelectedMap),MethodeSetter.Capitalizer(SelectedOperator));
+        confirm = MethodeSetter.SI();
         if(confirm.equals("back")||confirm.equals("stop")||confirm.equals("main menu")||confirm.equals("n")){
             throw new BackException("back");//returns you to main menu
         }
 
-        System.out.printf("You played %s on %s with %d kills, %d deaths, %d assists and a KD of %.2f\n",Capitalizer(SelectedOperator),Capitalizer(SelectedMap),kills,deaths,assists,kd);
+        System.out.printf("You played %s on %s with %d kills, %d deaths, %d assists and a KD of %.2f\n",MethodeSetter.Capitalizer(SelectedOperator),MethodeSetter.Capitalizer(SelectedMap),kills,deaths,assists,kd);
 
         System.out.println("----------");
         System.out.println("Would you like to save these results? [y/n]");
-        savechoice = SI().toLowerCase();
+        savechoice = MethodeSetter.SI().toLowerCase();
         switch (savechoice){
             case "y" -> Logger.LoggerWriter(SelectedMap,SelectedOperator,PlayedPlaylist,kills,deaths,assists,kd);//saves your data in a file
             case "n" -> throw new BackException("back");

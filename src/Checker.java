@@ -22,7 +22,7 @@ public class Checker extends Logger{
         System.out.println("What Operator do you want to check out?");
         System.out.println("See documentation for options.");
 
-        String SelOperator = SI().toLowerCase();
+        String SelOperator = MethodeSetter.SI().toLowerCase();
         if(SelOperator.equals("back")||SelOperator.equals("stop")||SelOperator.equals("main menu")){
             throw new BackException("back");
         }
@@ -32,7 +32,7 @@ public class Checker extends Logger{
         System.out.println("What Gamemode do you want to check? (Your Global stats will always be displayed)");
 
         do {
-            Playlist = SI().toLowerCase();
+            Playlist = MethodeSetter.SI().toLowerCase();
             switch (Playlist) {
                 case "ranked" ->
                         {
@@ -93,7 +93,7 @@ public class Checker extends Logger{
 
         System.out.println("----------");
         System.out.println("Do you want to see your last results? [y/n]");
-        choice = SI().toLowerCase();
+        choice = MethodeSetter.SI().toLowerCase();
         if(choice.equals("y")){
             reader = new BufferedReader(new FileReader("src\\logging\\last.txt"));
 
@@ -110,8 +110,8 @@ public class Checker extends Logger{
             double lkd = parseDouble(FileDecrypter(lastlines.get(5)));
 
             System.out.println("Your last stats were: ");
-            System.out.println("Operator: "+Capitalizer(lOperator));
-            System.out.println("Map: "+Capitalizer(lMap));
+            System.out.println("Operator: "+MethodeSetter.Capitalizer(lOperator));
+            System.out.println("Map: "+MethodeSetter.Capitalizer(lMap));
             System.out.println("Kills: "+lkills);
             System.out.println("Deaths: "+ldeaths);
             System.out.println("Assists: "+lassist);

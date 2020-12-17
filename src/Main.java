@@ -16,13 +16,13 @@ public class Main extends MethodeSetter {
                 System.out.println("----------");
                 System.out.println("What do you want to do?");
                 System.out.println("[Fill in]/[Check]/[Exit]");
-                choice = SI().toLowerCase(); //get String input (found in MethodeSetter)
+                choice = MethodeSetter.SI().toLowerCase(); //get String input (found in MethodeSetter)
                 switch (choice) {
                     case "fill in" -> {
                         System.out.println("----------");
                         System.out.println("What gamemode did you play?");
                         System.out.println("[Casual]/[Unranked]/[Ranked]");
-                        playlist = SI().toLowerCase();
+                        playlist = MethodeSetter.SI().toLowerCase();
                         switch (playlist){
                             case "casual", "quickmatch" -> {
                                 Results.MapSetter("quickmatch");

@@ -34,9 +34,9 @@ public class Logger extends FileEncryption{
                 lines.add(line);
             }
             reader.close();
-            lastkills = parseInt(FileDecrypter((lines.get(1))));
-            lastdeaths = parseInt(FileDecrypter(lines.get(2)));
-            lastassist = parseInt(FileDecrypter(lines.get(3)));
+            lastkills = parseInt(FileEncryption.FileDecrypter((lines.get(1))));
+            lastdeaths = parseInt(FileEncryption.FileDecrypter(lines.get(2)));
+            lastassist = parseInt(FileEncryption.FileDecrypter(lines.get(3)));
 
             File file = new File(LastFile);
 
@@ -71,11 +71,11 @@ public class Logger extends FileEncryption{
         String rkd = df.format(lastUKD);
 
         FileWriter writer = new FileWriter(sfile);
-        writer.write(FileEncrypter(Operator) + "\n");
-        writer.write(FileEncrypter(String.valueOf(newkills+lastkills)) + "\n");
-        writer.write(FileEncrypter(String.valueOf(newdeaths+lastdeaths)) + "\n");
-        writer.write(FileEncrypter(String.valueOf(newassist+lastassist)) + "\n");
-        writer.write(FileEncrypter(rkd));
+        writer.write(FileEncryption.FileEncrypter(Operator) + "\n");
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(newkills+lastkills)) + "\n");
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(newdeaths+lastdeaths)) + "\n");
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(newassist+lastassist)) + "\n");
+        writer.write(FileEncryption.FileEncrypter(rkd));
 
         writer.flush();
         writer.close();
@@ -111,21 +111,21 @@ public class Logger extends FileEncryption{
 
         File gfile = new File("src\\logging\\global.txt");
         FileWriter writer = new FileWriter(gfile, false);
-        writer.write(FileEncrypter(String.valueOf(tkills))+"\n");
-        writer.write(FileEncrypter(String.valueOf(tdeaths))+"\n");
-        writer.write(FileEncrypter(String.valueOf(tassist))+"\n");
-        writer.write(FileEncrypter(rkd));
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(tkills))+"\n");
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(tdeaths))+"\n");
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(tassist))+"\n");
+        writer.write(FileEncryption.FileEncrypter(rkd));
 
         writer.close();
 
         File cacheFile = new File("src\\logging\\last.txt");
         writer = new FileWriter(cacheFile, false);
-        writer.write(FileEncrypter(cacheOperator)+"\n");
-        writer.write(FileEncrypter(cacheMap)+"\n");
-        writer.write(FileEncrypter(String.valueOf(cacheKills))+"\n");
-        writer.write(FileEncrypter(String.valueOf(cacheDeaths))+"\n");
-        writer.write(FileEncrypter(String.valueOf(cacheAssist))+"\n");
-        writer.write(FileEncrypter(String.valueOf(cacheKD)));
+        writer.write(FileEncryption.FileEncrypter(cacheOperator)+"\n");
+        writer.write(FileEncryption.FileEncrypter(cacheMap)+"\n");
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(cacheKills))+"\n");
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(cacheDeaths))+"\n");
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(cacheAssist))+"\n");
+        writer.write(FileEncryption.FileEncrypter(String.valueOf(cacheKD)));
 
         writer.close();
 
@@ -155,8 +155,8 @@ public class Logger extends FileEncryption{
         }
         reader.close();
 
-        gkills = parseInt(FileDecrypter(globallines.get(0)));
-        gdeaths = parseInt(FileDecrypter(globallines.get(1)));
-        gassists = parseInt(FileDecrypter(globallines.get(2)));
+        gkills = parseInt(FileEncryption.FileDecrypter(globallines.get(0)));
+        gdeaths = parseInt(FileEncryption.FileDecrypter(globallines.get(1)));
+        gassists = parseInt(FileEncryption.FileDecrypter(globallines.get(2)));
     }
 }

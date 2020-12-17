@@ -5,7 +5,6 @@ import java.util.List;
 
 public class OperatorNumFinder extends Logger {
     public static int OpNumFinder(String SelectedOperator) throws Exception{
-        int emptyreturn = 0;
 
         List<String> lines = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader("src\\Misc\\TotalOperators.txt"));

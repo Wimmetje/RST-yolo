@@ -16,7 +16,7 @@ public class OperatorSelect extends MapSelect{
         System.out.println("----------");
         System.out.println("Did you play as offense or as defense?");
         System.out.println("[Offense]/[Defense]");
-        PlayedSide = SI().toLowerCase();
+        PlayedSide = MethodeSetter.SI().toLowerCase();
 
         if(PlayedSide.equals("back")||PlayedSide.equals("stop")||PlayedSide.equals("main menu")){
             throw new BackException("back");
@@ -46,7 +46,7 @@ public class OperatorSelect extends MapSelect{
         j=operators.size();
 
         do{
-            PlayedOperator = SI().toLowerCase();
+            PlayedOperator = MethodeSetter.SI().toLowerCase();
 
             if(PlayedOperator.equals("back")||PlayedOperator.equals("stop")||PlayedOperator.equals("main menu")){
                 throw new BackException("back");

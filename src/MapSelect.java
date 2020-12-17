@@ -48,7 +48,7 @@ public class MapSelect extends Main {
         System.out.println("Which map did you play?");
         System.out.println("See documentation for options.");
 
-        map = SI().toLowerCase();
+        map = MethodeSetter.SI().toLowerCase();
 
         if(map.equals("back")||map.equals("stop")||map.equals("main menu")){
             throw new BackException("back");
